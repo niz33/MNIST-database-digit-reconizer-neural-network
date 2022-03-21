@@ -8,7 +8,7 @@ struct neuron {
 	double activation_value;
 	vector <double> weight;
 };
-
+sddasdsada
 class layer {
 public:
 	int neuron_count = -1, last_layer_neuron_count = -1, index;
