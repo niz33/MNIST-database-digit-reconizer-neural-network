@@ -3,6 +3,7 @@
 #include<vector>
 #include<time.h>
 #include<cmath>
+#include"file_reader.h"
 using namespace std;
 
 class layer {
@@ -20,8 +21,8 @@ public:
 			return;
 		}
 		bias = (double)rand() / RAND_MAX;
-		for (int i = 1; i <= last_layer_neuron_count; i++) {
-			for (int j = 1; j <= neuron_count; j++) {
+		for (int i = 0; i < last_layer_neuron_count; i++) {
+			for (int j = 0; j < neuron_count; j++) {
 				weight[i][j] = (double)rand() / RAND_MAX;
 			}
 		}
@@ -65,11 +66,16 @@ public:
 			layers[i].initialize();
 		}
 	}
-	void cal() {
+	void cal(image im) {
+		for (int i = 0; i < 28; i++) {
+			for (int j = 0; j < 28; j++) {
+				layers[i].a[i * 28 + j] = (double)im.p[i][j];
+			}
+		}
 		for (int i = 1; i < layer_count; i++) {
-			for (int j = 1; j <= layers[i].neuron_count; j++) {
+			for (int j = 0; j < layers[i].neuron_count; j++) {
 				layers[i].a[j] = 0;
-				for (int k = 1; k <= layers[i].last_layer_neuron_count; k++) {
+				for (int k = 0; k < layers[i].last_layer_neuron_count; k++) {
 					layers[i].a[j] += layers[i - 1].a[k] * layers[i].weight[k][j];
 				}
 				layers[i].a[j] = sigmoid(layers[i].a[j] + layers[i].bias);
