@@ -4,15 +4,10 @@
 #include<time.h>
 using namespace std;
 
-struct neuron {
-	double activation_value;
-	vector <double> weight;
-};
 class layer {
 public:
 	int neuron_count = -1, last_layer_neuron_count = -1, index;
-	double bias;
-	vector <neuron> neurons;
+	double weight[101][101],bias,a[101];
 	void initialize() {
 		srand(time(0));
 		if (!neuron_count) {
@@ -24,31 +19,26 @@ public:
 			return;
 		}
 		bias = (double)rand() / RAND_MAX;
-		neuron temp;
-		for (int i = 1; i <= neuron_count; i++) {
-			for (int i = 1; i <= last_layer_neuron_count; i++) {
-				temp.weight.push_back((double)rand() / RAND_MAX);
+		for (int i = 1; i <= last_layer_neuron_count; i++) {
+			for (int j = 1; j <= neuron_count; j++) {
+				weight[i][j] = (double)rand() / RAND_MAX;
 			}
-			neurons.push_back(temp);
 		}
 	}
 };
 
-class activation_functions {
+double ReLU(double x) {
 
-public:
-	double ReLU(double x) {
+}
+double sigmoid(double x) {
 
-	}
-	double sigmoid(double x) {
+}
+double sigmoid_differential(double x) {
 
-	}
-	double sigmoid_differential(double x) {
+}
+double activate(double x, int type) {
 
-	}
-	double activate(double x, int type) {
-
-	}
+}
 
 };
 
@@ -71,6 +61,20 @@ public:
 		}
 	}
 	void initialize_layers() {
-
+		for (int i = 0; i < layer_count; i++) {
+			layers[i].index = i;
+			layers[i].initialize();
+		}
+	}
+	void cal() {
+		for (int i = 1; i < layer_count; i++) {
+			for (int j = 1; j <= layers[i].neuron_count; j++) {
+				layers[i].a[j] = 0;
+				for (int k = 1; k <= layers[i].last_layer_neuron_count; k++) {
+					layers[i].a[j] += layers[i - 1].a[k] * layers[i].weight[k][j];
+				}
+				layers[i].a[j] = sigmoid(layers[i].a[j] + layers[i].bias);
+			}
+		}
 	}
 };

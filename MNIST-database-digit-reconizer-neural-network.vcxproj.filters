@@ -32,6 +32,9 @@
     <ClInclude Include="Header Files\neural_network.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="file_reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MNIST-database-digit-reconizer-neural-network.cpp">
