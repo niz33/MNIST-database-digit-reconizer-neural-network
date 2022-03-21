@@ -2,6 +2,7 @@
 #include<iostream>
 #include<vector>
 #include<time.h>
+#include<cmath>
 using namespace std;
 
 class layer {
@@ -28,19 +29,17 @@ public:
 };
 
 double ReLU(double x) {
-
+	return 0;
 }
 double sigmoid(double x) {
-
+	return 1 / (1 + pow(x, exp(1)));
 }
 double sigmoid_differential(double x) {
-
+	return 0;
 }
 double activate(double x, int type) {
-
+	return 0;
 }
-
-};
 
 class neural_network {
 public:

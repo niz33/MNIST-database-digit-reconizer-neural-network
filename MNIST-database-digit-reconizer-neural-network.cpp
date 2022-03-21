@@ -8,6 +8,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     neural_network n;
+    cout << exp(1);
     //why is this not updating???
 }
 
