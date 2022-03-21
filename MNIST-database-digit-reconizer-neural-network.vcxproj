@@ -146,7 +146,7 @@
     <None Include="Rescource Files\train-labels.data" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="file_reader.h" />
+    <ClInclude Include="Header Files\file_reader.h" />
     <ClInclude Include="Header Files\neural_network.h" />
   </ItemGroup>
   <ItemGroup>
