@@ -68,6 +68,7 @@ public:
 		}
 		cout << "Completed loading labels." << endl;
 		data_loaded = true;
+		return;
 	}
 	void display_image(int index) {
 		if (!data_loaded) {
@@ -81,5 +82,6 @@ public:
 			}
 			cout << endl;
 		}
+		return;
 	}
 };

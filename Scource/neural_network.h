@@ -26,6 +26,7 @@ public:
 			}
 			bias[i] = (double)rand() / RAND_MAX * 2 - 1;
 		}
+		return;
 	}
 };
 
@@ -61,6 +62,7 @@ public:
 			layers.push_back(temp);
 		}
 		initialized = true;
+		return;
 	}
 	void initialize_layers() {
 		for (int i = 1; i < layer_count; i++) {
@@ -69,6 +71,7 @@ public:
 			layers[i].initialize();
 		}
 		initialized_layers = true;
+		return;
 	}
 	void cal(image im) {
 		for (int i = 0; i < 28; i++) {
@@ -88,6 +91,7 @@ public:
 		for (int i = 0; i < layers[layer_count - 1].neuron_count; i++) {
 			cout << layers[layer_count - 1].a[i] << " ";
 		}cout << endl;
+		return;
 	}
 	void display_network() {
 		if (!initialized) {
@@ -111,5 +115,6 @@ public:
 				cout << endl;
 			}
 		}
+		return;
 	}
 };
