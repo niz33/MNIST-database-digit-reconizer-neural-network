@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "Header Files\neural_network.h"
+#include "neural_network.h"
 
 int main()
 {
@@ -10,8 +10,10 @@ int main()
     neural_network n;
     cout << exp(1) << endl;
     //why is this not updating???
-    traning_data traind;
-    traind.import_data();
+    image_dataset train_data;
+    train_data.import_data("F:\\Administrator\\source\\repos\\MNIST-database-digit-reconizer-neural-network\\Scource\\Resource Files\\train-images.data", 
+        "F:\\Administrator\\source\\repos\\MNIST-database-digit-reconizer-neural-network\\Scource\\Resource Files\\train-labels.data");
+    train_data.display_image(0);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
