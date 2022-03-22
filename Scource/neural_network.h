@@ -35,7 +35,7 @@ double ReLU(double x) {
 double sigmoid(double x) {
 	return 1 / (1 + pow(x, exp(1)));
 }
-double sigmoid_differential(double x) {
+double sigmoid_derivative(double x) {
 	return 0;
 }
 double activate(double x, int type) {

@@ -8,8 +8,10 @@ int main()
 {
     std::cout << "Hello World!\n";
     neural_network n;
-    cout << exp(1);
+    cout << exp(1) << endl;
     //why is this not updating???
+    traning_data traind;
+    traind.import_data();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
