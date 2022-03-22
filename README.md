@@ -1,4 +1,4 @@
-# MNIST-database-digit-reconizer-neural-network
+# Handwritten digit reconizer neural network
 
 Nothing special, just a simple neural network program that learns to reconize hand written digits in the form of 28*28 greyscale images.
 
