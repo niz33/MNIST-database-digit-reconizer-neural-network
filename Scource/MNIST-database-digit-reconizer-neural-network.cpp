@@ -13,7 +13,19 @@ int main()
     image_dataset train_data;
     train_data.import_data("F:\\Administrator\\source\\repos\\MNIST-database-digit-reconizer-neural-network\\Scource\\Resource Files\\train-images.data", 
         "F:\\Administrator\\source\\repos\\MNIST-database-digit-reconizer-neural-network\\Scource\\Resource Files\\train-labels.data");
-    train_data.display_image(0);
+    image_dataset test_data;
+    test_data.import_data("F:\\Administrator\\source\\repos\\MNIST-database-digit-reconizer-neural-network\\Scource\\Resource Files\\test-images.data",
+        "F:\\Administrator\\source\\repos\\MNIST-database-digit-reconizer-neural-network\\Scource\\Resource Files\\test-labels.data");
+    //test_data.display_image(100);
+    n.layer_count = 3;
+    n.initialize();
+    n.layers[0].neuron_count = 28 * 28;
+    n.layers[1].neuron_count = 16;
+    n.layers[2].neuron_count = 10;
+    n.initialize_layers();
+    //n.display_network();
+    cout << sigmoid(-1) << endl;
+    n.cal(train_data.images[1]);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
