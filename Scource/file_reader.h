@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<fstream>
+#include<vector>
 using namespace std;
 struct image {
 	int label;
@@ -10,8 +11,9 @@ class image_dataset {
 public:
 	unsigned int magic_number, image_width, image_height, image_count, expected_image_magic_number = 2051, expected_label_magic_number = 2049;
 	bool data_loaded = false;
-	image images[60000];
+	vector <image> images;
 	void import_data(string image_location, string label_location) {
+		
 		fstream image_file;
 		image_file.open(image_location, ios::in | ios::binary);
 		if (image_file.fail())
@@ -36,6 +38,10 @@ public:
 		image_file.read(temp, 4);
 		image_width = (unsigned char)temp[3] | ((unsigned char)temp[2] << 8) | ((unsigned char)temp[1] << 16) | ((unsigned char)temp[0] << 24);
 		//cout << image_width << endl;
+		image empty_image;
+		for (int i = 0; i < image_count; i++) {
+			images.push_back(empty_image);
+		}
 		image_file.read(temp, image_count*image_height*image_width);
 		int tempi = 0;
 		for (int i = 0; i < image_count; i++) {
